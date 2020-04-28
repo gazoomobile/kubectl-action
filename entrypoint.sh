@@ -2,6 +2,20 @@
 
 set -e
 
+mkdir $HOME/.aws
+
+echo "
+[profile $AWS_PROFILE_NAME]
+output = text
+region = $AWS_REGION
+" >> $HOME/.aws/config
+
+echo "
+[$AWS_PROFILE_NAME]
+aws_access_key_id = $AWS_ACCESS_KEY_ID
+aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
+" >> $HOME/.aws/credentials
+
 if [ ! -d "$HOME/.kube" ]; then
     mkdir -p $HOME/.kube
 fi
