@@ -43,6 +43,6 @@ if [ ! -f "$HOME/.kube/config" ]; then
     fi
 fi
 
-echo ::add-path::/usr/local/bin/kubectl
+echo "/usr/local/bin/kubectl" >> $GITHUB_PATH
 
 kubectl $*
